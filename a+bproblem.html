@@ -1,0 +1,84 @@
+<h1 id="第1关">第1关</h1>
+<pre><code class="language-cpp">#pragma GCC optimize(&quot;Ofast&quot;, &quot;inline&quot;, &quot;-ffast-math&quot;)
+#pragma GCC target(&quot;avx,sse2,sse3,sse4,mmx&quot;)
+#ifdef __linux
+#define USE_FAST_I
+#define USE_FAST_O
+#define _IOBUF_SIZE (1u&lt;&lt;16)
+#endif
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;string&gt;
+#include&lt;string.h&gt;
+#include&lt;ctype.h&gt;
+#include&lt;cmath&gt;
+#include&lt;vector&gt;
+#include&lt;queue&gt;
+#include&lt;deque&gt;
+#include&lt;set&gt;
+#include&lt;map&gt;
+#include&lt;stack&gt;
+#include&lt;climits&gt;
+#define U unsigned
+#define R register
+#define ldb long double
+#define GET_NONVOID_CHAR(ch) for(ch=&#39; &#39;;isspace(ch);ch=getchar());
+typedef long long ll;
+//#define int ll
+#ifdef USE_FAST_I
+static char ___inbuf[_IOBUF_SIZE],*___inputp1=___inbuf,*___inputp2=___inbuf;
+#define getchar() (___inputp1==___inputp2 &amp;&amp; (___inputp2=(___inputp1=___inbuf)+fread(___inbuf,1,sizeof(___inbuf),stdin),___inputp1==___inputp2)?EOF:*___inputp1++)
+#endif
+#ifdef USE_FAST_O
+static char ___outbuf[_IOBUF_SIZE],*___outputp1=___outbuf;
+static const char *___outputend=___outbuf+sizeof(___outbuf);
+inline void ___flush(){
+    fwrite(___outbuf,1,static_cast&lt;size_t&gt;(___outputp1-___outbuf),stdout);
+    ___outputp1=___outbuf;
+}
+inline void ____putchar(char ch){
+    *(___outputp1++)=ch;
+    if(___outputp1==___outputend){
+        ___flush();
+    }
+}
+inline int ____puts(const char *_Str){
+    int i=0;
+    while(_Str[i])____putchar(_Str[i++]);
+    return i;
+}
+#define putchar(_Ch) ____putchar(static_cast&lt;char&gt;(_Ch))
+#define puts(_Str) ____puts(_Str)
+struct ___auto_flush{
+    ~___auto_flush(){
+        ___flush();
+    }
+}____auto_flush;
+#endif
+template&lt;class T&gt;char read(T &amp;n){n=0;R bool f=false;R char ch=getchar();for(;ch!=&#39;-&#39;&amp;&amp;!isdigit(ch);ch=getchar());if(ch==&#39;-&#39;){f=true;ch=getchar();}for(;isdigit(ch);ch=getchar()){n=(n&lt;&lt;3)+(n&lt;&lt;1)+(ch^&#39;0&#39;);}if(f)n=~n+1;return ch;}
+#if __cplusplus &gt;=201103LL
+#define foreach(i,array) for(auto &amp;i:array)
+template&lt;typename T,typename ... Others&gt;void read(T &amp;n,Others&amp; ... args){read(n);read(args ...);}
+#endif
+template&lt;class T&gt;void write(const T &amp;n){if(n&lt;0){putchar(&#39;-&#39;);write(~n+1);return;}if(n&gt;9)write(n/10);putchar(&#39;0&#39;^(n%10));}
+template&lt;class T&gt;inline void writeLn(const T &amp;n){write(n);putchar(&#39;\n&#39;);}
+using namespace std;
+
+int a,b,c;
+signed main(){
+    read(a,b);
+    asm(
+    &quot;movl %1,%%eax\n&quot;
+    &quot;addl %2,%%eax\n&quot;
+    &quot;movl %%eax,%0\n&quot;
+    :&quot;=r&quot;(c)
+    :&quot;r&quot;(a),&quot;r&quot;(b)
+    :&quot;%eax&quot;);
+    write(c);
+}
+</code></pre>
+<h2 id="1234567890-1234567890-2345678900-2345678900">1234567890
+1234567890
+2345678900
+2345678900
+  </h2>
